@@ -1,0 +1,212 @@
+/* START OF HEADER VIDEO */
+
+header {
+    height: 60vh;
+    /* height: 100vh; */
+    width: 100%;
+    background-color: black;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+}
+
+header video {
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    opacity: 0.35;
+    z-index: 0;
+    -ms-transform: translateX(-50%) translateY(-41%);
+    -moz-transform: translateX(-50%) translateY(-41%);
+    -webkit-transform: translateX(-50%) translateY(-41%);
+    transform: translateX(-50%) translateY(-41%);
+    -webkit-filter: blur(12px);
+    -moz-filter: blur(12px);
+    -o-filter: blur(12px);
+    -ms-filter: blur(12px);
+    filter: blur(12px);
+}
+
+/* END OF HEADER VIDEO */
+
+/* START OF SEARCH BAR */
+
+header .container.search {
+    position: relative;
+    z-index: 2;
+    margin-top: 15vh;
+}
+
+header .searchBar {
+    width: 50%;
+    height: 50px;
+}
+
+header .regionBar {
+    width: 12%;
+    height: 50px;
+}
+
+/* END OF SEARCH BAR */
+
+/* START OF FILTER */
+
+.filter {
+    margin-top: 50px;
+    margin-left: 10vw;
+    padding-right: 1vw;
+    width: 15vw;
+    float: left;
+}
+
+.filter h5.title {
+    text-align: center;
+}
+
+.filter input.btn {
+    margin: auto;
+}
+
+.filter-content {
+    border-radius: 10px;
+}
+
+/* END OF FILTER */
+
+/* START OF RESTAURANTS LIST FADE ANIMATION */
+
+#restaurantsTable .card {
+    -webkit-animation: fadein 1.0s;
+    /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 1.0s;
+    /* Firefox < 16 */
+    -ms-animation: fadein 1.0s;
+    /* Internet Explorer */
+    -o-animation: fadein 1.0s;
+    /* Opera < 12.1 */
+    animation: fadein 1.0s;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Firefox < 16 */
+
+@-moz-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+
+@-webkit-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Internet Explorer */
+
+@-ms-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Opera < 12.1 */
+
+@-o-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* END OF RESTAURANTS LIST FADE ANIMATION */
+
+/* START OF RESTAURANTS IMAGE HOVER */
+
+.hovereffect {
+    width: 100%;
+    height: auto;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    cursor: default;
+}
+
+.hovereffect .overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    -webkit-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+}
+
+.hovereffect:hover .overlay {
+    background-color: rgba(75, 75, 75, 0.75);
+}
+
+.hovereffect img {
+    display: block;
+    position: relative;
+}
+
+.hovereffect a.info {
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    border: 1px solid #fff;
+    background-color: transparent;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    font-weight: normal;
+    margin-top: 8vh;
+    padding: 20px 20px;
+}
+
+.hovereffect:hover a.info {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+}
+
+.hovereffect a.info:hover {
+    box-shadow: 0 0 5px #fff;
+}
+
+/* END OF RESTAURANTS IMAGE HOVER */

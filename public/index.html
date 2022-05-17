@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="icon" href="images/singafood.png">
+    <title>Singafood</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/6be1ba276d.js" crossorigin="anonymous" SameSite="None"></script>
+    <script src="js/app.js"></script>
+    <script src="js/notify.js"></script>
+    <script src="js/functions.js"></script>
+    <script src="js/index.js"></script>
+</head>
+
+<!-- Background -->
+<header>
+    <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+        <source src="images/header.mp4" type="video/mp4">
+    </video>
+    <div w3-include-html="modals_forms/search_form.html"></div>
+</header>
+
+<!-- Short delay is set due to inconsistent load times causing it to "think" the element doesn't exist -->
+<body onload="getRestaurantData(); setTimeout(updateNavBar, 20);">
+    <!-- Navigation Bar -->
+    <div w3-include-html="navbar.html"></div>
+
+    <!-- Filter form -->
+    <div w3-include-html="modals_forms/filter_form.html"></div>
+
+    <!-- List of restaurants will be shown here -->
+    <div class="container">
+        <!-- If Javascript error been found else function will change this with innerHTML -->
+        <div class="row" id="parent">
+            Retrieving restaurants from database... Please wait...<br><br>
+            If you are seeing this message for a long time, it is likely
+            that you have a JavaScript error. Troubleshoot your script by
+            using the browser console panel now. Please use either Firefox
+            or Chrome to render this webpage.
+        </div>
+        <p>
+            <!-- Total number of restaurants -->
+            <h3 id="summary"></h3>
+        </p>
+        <!-- Displays restaurants here -->
+        <div id="restaurantsTable" class="row"></div>
+    </div>
+    <!-- Login, Register & Reset Password modals -->
+    <div w3-include-html="modals_forms/login_modal.html"></div>
+    <div w3-include-html="modals_forms/register_modal.html"></div>
+    <div w3-include-html="modals_forms/resetpassword_modal.html"></div>
+
+    <!-- Site Footer -->
+    <div w3-include-html="footer.html"></div>
+</body>
+<script src="js/w3.js"></script>
+<script>
+    //to bring in other HTML on the fly into this page
+    w3.includeHTML();
+</script>
+
+</html>

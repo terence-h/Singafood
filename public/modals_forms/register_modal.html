@@ -1,0 +1,59 @@
+<!-- Register Form -->
+<div class="modal fade loginregister" id="registerForm" tabindex="-1" role="dialog" aria-labelledby="registerFormLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header border-bottom-0">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-title text-center">
+                    <h4>Register</h4>
+                </div>
+                <div class="d-flex flex-column text-center">
+                    <form action="register" method="POST" onsubmit="registerUser(); return false;"
+                        id="registerFormInfo">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="username"
+                                placeholder="Username (used to login)" minlength="8" required autocomplete="off"><br>
+                            <input type="password" class="form-control" name="password"
+                                placeholder="Password (used to login)" minlength="8" maxlength="60" required
+                                autocomplete="off"><br>
+                            <textarea class="form-control" rows="2" name="address" placeholder="Address"
+                                autocomplete="off" required></textarea><br>
+                            <input type="text" class="form-control" name="firstName" placeholder="First Name" required
+                                autocomplete="off"><br>
+                            <input type="text" class="form-control" name="lastName" placeholder="Last Name" required
+                                autocomplete="off"><br>
+                            <input type="email" class="form-control" name="email" placeholder="Email" required
+                                autocomplete="off"><br>
+                            <input type="number" class="form-control" name="contact" placeholder="Contact"
+                                min="80000000" max="99999999" required autocomplete="off"><br>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <label class="form-check">
+                                    <input class="custom-control-input" type="radio" name="gender" value="1" required>
+                                    <span class="custom-control-label">Male</span>
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <label class="form-check">
+                                    <input class="custom-control-input" type="radio" name="gender" value="2">
+                                    <span class="custom-control-label">Female</span>
+                                </label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-block btn-round">Register</button>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+                <div class="extra-section">Already a member?
+                    <a href="#" class="text-info" data-toggle="modal" data-target="#loginForm" data-dismiss="modal">
+                        Login Here</a>.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

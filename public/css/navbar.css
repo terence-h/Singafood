@@ -1,0 +1,82 @@
+/* START OF NAVIGATION BAR */
+
+.navbar {
+    border-radius: 0;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+.affix {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    padding: 30px 50px 30px;
+}
+
+.affix.navbar {
+    background-color: rgba(52, 58, 64, 1);
+}
+
+.affix.navbar .nav-item>a, .affix.navbar .navbar-brand {
+    color: #fff;
+}
+
+@media(max-width:34em) {
+    .navbar .navbar-nav>.nav-item {
+        float: none;
+        margin-left: .1rem;
+    }
+    .navbar .navbar-nav {
+        float: none !important;
+    }
+    .navbar .collapse.in, .navbar .collapsing {
+        clear: both;
+    }
+}
+
+/* END OF NAVIGATION BAR */
+
+/* START OF LOGIN, REGISTER AND RESET PASSWORD */
+
+.container.loginregister {
+    padding: 2rem 0rem;
+}
+
+@media (min-width: 576px) {
+    .loginregister .modal-dialog {
+        max-width: 400px;
+    }
+    .loginregister .modal-content {
+        padding: 1rem;
+    }
+}
+
+.loginregister .modal-header.close {
+    margin-top: -1.5rem;
+}
+
+.loginregister .form-title {
+    margin: -2rem 0rem 2rem;
+}
+
+.loginregister .btn-round {
+    border-radius: 3rem;
+}
+
+.loginregister .delimiter {
+    padding: 1rem;
+}
+
+.loginregister .social-buttons.btn {
+    margin: 0 0.5rem 1rem;
+}
+
+.loginregister .back {
+    padding: 0.3rem 0rem;
+}
+
+/* END OF LOGIN, REGISTER AND RESET PASSWORD */

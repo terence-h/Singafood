@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="icon" href="images/singafood.png">
+    <title>Singafood</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/6be1ba276d.js" crossorigin="anonymous" SameSite="None"></script>
+    <script src="js/app.js"></script>
+    <script src="js/functions.js"></script>
+    <script src="js/restaurants.js"></script>
+    <script src="js/user.js"></script>
+</head>
+
+<body onload="updateNavBar();">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="col-lg-4">
+                    <p>@User1234_super</p>
+                <p>Super User</p>
+                <p>Male</p>
+                </div>
+                <div class="col-lg-8">
+                    @User1234_super
+                    Super User
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login, Register & Reset Password modals -->
+    <div w3-include-html="modals_forms/login_modal.html"></div>
+    <div w3-include-html="modals_forms/register_modal.html"></div>
+    <div w3-include-html="modals_forms/resetpassword_modal.html"></div>
+
+    <!-- Site Footer -->
+    <div w3-include-html="footer.html"></div>
+</body>
+<script src="js/w3.js"></script>
+<script>
+    //to bring in other HTML on the fly into this page
+    w3.includeHTML();
+</script>
+
+</html>

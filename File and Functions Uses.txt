@@ -1,0 +1,40 @@
+===== ./public/js/ =====
+
+app.js - Route URL, data arrays
+functions.js - Used universally on any HTML pages
+index.js - Used on index.html
+restaurants.js - Used on restaurants.html
+user.js - Used on dashboard.html
+
+===== functions.js =====
+
+User information variables
+    username, userPassword, userAddress, userFirstName, userLastName, userEmail, userGender, userContact, userProfilePicture
+
+updateNavBar() - Updates the navbar login/register button depending on user is logged in or not
+setLoggedinButton() - Sets the navbar login/register button to 'Welcome, [first name, last name]'
+setLoginButton() - Reset navbar login/register button to 'Login/Register'
+authenticateUser() - Send user login inputs to login route for authentication
+deauthenticateUser() - Send to logout route and destroy logged in session and cookie.
+getCookie(cname) - If cookie exists.
+
+===== index.js =====
+getSearchQuery() - Return user inputs into the correct route URL format
+getFilterQuery() - Return user inputs into the correct route URL format
+limitFilterAndRefresh() - Check everytime when changes are made to the filter form and disable the rest of the checkboxes when 3 are checked.
+resetLimitAndRefresh() - Enable the checkboxes once less than 3 are checked.
+getRestaurantData() - Send to get all restaurant routes to retrieve all restaurants.
+getSearchData() - Return restaurants search results based on user input
+getFilterData() - Return restaurants filter results based on user input
+displayRestaurants() - Set the content of the index.html restaurants list
+
+===== restaurant.js =====
+showReviewButton() - Show the review button when user is logged in
+hideReviewButton() - Hide the review button when user is not logged in
+initMap() - Initialize Google Maps JS API and set map location and marker depending on the restaurant.
+
+===== user.js =====
+showUserInfo() - Show user info on the dashboard.html
+viewProfileDiv() - Set the content of Profile tab in dashboard.html
+updateProfileDiv() - Set the content of Edit Profile button in dashboard.html
+deleteUser() - Send user ID to user delete route for deletion.

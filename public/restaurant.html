@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/restaurants.css">
+    <link rel="icon" href="images/singafood.png">
+    <title>Singafood</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/6be1ba276d.js" crossorigin="anonymous" SameSite="None"></script>
+    <!-- ENABLE GOOGLE MAPS WHEN GOING LIVE -->
+    <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNcAVDOkCIEKIUv2YcxLb6-kINmQzG_20&callback=initMap"></script> -->
+    <script src="js/app.js"></script>
+    <script src="js/notify.js"></script>
+    <script src="js/functions.js"></script>
+    <script src="js/restaurants.js"></script>
+</head>
+
+<!-- Short delay is set due to inconsistent load times causing it to "think" the element doesn't exist -->
+
+<body onload="getRestaurantInfo(); getRestaurantReviews(); setTimeout(updateNavBar, 20);" style="margin-top:90px;">
+    <!-- Navigation Bar -->
+    <div w3-include-html="navbar-fixed.html"></div>
+
+    <div class="container-fluid" style="text-align: center;">
+        <div class="row" style="background-color: #3c3c3c;">
+            <div class="col-lg-12">
+
+                <!-- Start of Carousel -->
+                <div id="carousel-gallery" class="carousel slide" data-ride="carousel">
+
+                    <!-- Indicators -->
+                    <ul class="carousel-indicators">
+                        <li data-target="#carousel-gallery" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-gallery" data-slide-to="1"></li>
+                        <li data-target="#carousel-gallery" data-slide-to="2"></li>
+                    </ul>
+
+                    <!-- The slideshow -->
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="images/restaurants/gallery/kfc-1.jpg">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/restaurants/gallery/kfc-2.jpg">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/restaurants/gallery/kfc-3.jpg">
+                        </div>
+                    </div>
+
+                    <!-- Left and right controls -->
+                    <a class="carousel-control-prev" href="#carousel-gallery" data-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </a>
+                    <a class="carousel-control-next" href="#carousel-gallery" data-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <!-- End of Carousel -->
+
+    <div class="container">
+
+        <!-- Start of restaurant information -->
+        <div class="row">
+            <div class="col-lg-7" id="restaurant-info">
+                <!-- <div class="card card-outline-secondary my-4">
+                    <div class="card-header">
+                        <h5>KFC (Tampines Round Market)</h5>
+                        <h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Western, Fast Food, Halal&nbsp;&nbsp;|&nbsp;&nbsp;4.3 &#9733;
+                            &#9733; &#9733; &#9733; &#9734;&nbsp;&nbsp;|&nbsp;&nbsp;$</h6>
+                        <h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Blk 139 Tampines Street 11 #01-66, 521139</h6>
+                    </div>
+                    <div class="card-body">
+                        <p>Fast-food chain known for its buckets of fried chicken, plus wings & sides.</p>
+                    </div>
+                </div> -->
+            </div>
+            <div class="col-lg-5" id="restaurant-operatinghours">
+                <div class="card card-outline-secondary my-4">
+                    <div class="row">
+                        <div class="card-body col-md-1"></div>
+                        <div class="card-body col-md-4">
+                            <p><b>Mon</b>: 1100 - 2000</p>
+                            <p><b>Tue</b>: 1100 - 2000</p>
+                            <p><b>Wed</b>: 1100 - 2000</p>
+                            <p><b>Thu</b>: 1100 - 2000</p>
+                            <p><b>Fri</b>: 1100 - 2000</p>
+                            <p><b>Sat</b>: 0800 - 2000</p>
+                            <p><b>Sun</b>: 0800 - 2000</p>
+                        </div>
+                        <div class="card-body col-md-7">
+                            <div id="map"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End of restaurant information -->
+
+        <!-- Start of Review column -->
+        <div class="row">
+            <div class="col-lg-7 review-border">
+                <div class="dropdown mr-1 d-flex justify-content-end">
+                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button"
+                        aria-haspopup="true" aria-expanded="false">Sort By:<span class="caret"></span><a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuOffset">
+                        <a class="dropdown-item" href="#">Date Posted (Ascending)</a>
+                        <a class="dropdown-item" href="#">Date Posted (Descending)</a>
+                        <a class="dropdown-item" href="#">Positive Ratings</a>
+                        <a class="dropdown-item" href="#">Negative Ratings</a>
+                    </div>
+                </div>
+                <div class="card card-outline-secondary my-4">
+                    <div class="card-header">
+                        User Reviews
+                    </div>
+                    <div class="card-body" id="reviewCol">
+                    <!-- User reviews -->
+                    </div>
+                </div>
+                <div class="text-center" id="reviewBtn">
+                    <a class="btn btn-success btn-green" href="#reviews-anchor" id="open-review-box">Leave a
+                        Review</a>
+                </div><br>
+                <div class="row" id="post-review-box" style="display:none;">
+                    <div class="col-md-12 text-right">
+                        <form accept-charset="UTF-8" action="" method="post">
+                            <textarea class="form-control animated" cols="50" id="new-review" name="comment"
+                                placeholder="Enter your review here..." rows="5"></textarea><br>
+                            <label>Rating: <input type="number" step="0.1" min="1.0" max="5.0"></label>
+                            <div class="text-right">
+                                <a class="btn btn-danger" href="#" id="close-review-box"
+                                    style="display:none; margin-right: 10px;">
+                                    <span class="glyphicon glyphicon-remove"></span>Cancel</a>
+                                <button class="btn btn-success" type="submit">Submit</button>
+                            </div><br>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- End of Review column -->
+
+            <!-- Start of overall ratings -->
+            <div class="col-lg-5">
+                <div class="card card-outline-secondary my-4">
+                    <div class="card-header">
+                        Overall Ratings
+                    </div>
+                    <div class="card-body">
+                        <!-- <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span> -->
+                        <p>4.3 average based on 6 reviews.</p>
+                        <hr>
+
+                        <div class="row">
+                            <div class="side">
+                                <div class="overall-rating-range">5.0</div>
+                            </div>
+                            <div class="middle">
+                                <div class="bar-container">
+                                    <div class="bar-5"></div>
+                                </div>
+                            </div>
+                            <div class="side right">
+                                <div>1</div>
+                            </div>
+                            <div class="side">
+                                <div class="overall-rating-range">4.0 - 4.9</div class="overall-rating-range">
+                            </div>
+                            <div class="middle">
+                                <div class="bar-container">
+                                    <div class="bar-4"></div>
+                                </div>
+                            </div>
+                            <div class="side right">
+                                <div>1</div>
+                            </div>
+                            <div class="side">
+                                <div class="overall-rating-range">3.0 - 3.9</div class="overall-rating-range">
+                            </div>
+                            <div class="middle">
+                                <div class="bar-container">
+                                    <div class="bar-3"></div>
+                                </div>
+                            </div>
+                            <div class="side right">
+                                <div>0</div>
+                            </div>
+                            <div class="side">
+                                <div class="overall-rating-range">2.0 - 2.9</div class="overall-rating-range">
+                            </div>
+                            <div class="middle">
+                                <div class="bar-container">
+                                    <div class="bar-2"></div>
+                                </div>
+                            </div>
+                            <div class="side right">
+                                <div>1</div>
+                            </div>
+                            <div class="side">
+                                <div class="overall-rating-range">1.0 - 1.9</div class="overall-rating-range">
+                            </div>
+                            <div class="middle">
+                                <div class="bar-container">
+                                    <div class="bar-1"></div>
+                                </div>
+                            </div>
+                            <div class="side right">
+                                <div>1</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End of overall ratings -->
+
+                <!-- Start of most positive/critical review -->
+                <div class="card card-outline-secondary my-4">
+                    <!-- <img src="images/review.JPG" alt=""/> -->
+                    <div class="card-header">
+                        Most Positive Review
+                    </div>
+                    <div class="card-body">
+                        <h6 class="user-rating">5.0 &#9733; &#9733; &#9733; &#9733; &#9733;</h6>
+                        <p>A fairly spacious outlet which was relatively quiet on a weekend evening. Tried the
+                            Mozzarella Zinger and found
+                            it not too bad. A quick fast-food place for a quick meal.</p>
+                        <img src="https://via.placeholder.com/50x50.png" alt="" />
+                        <small class="text-muted">Posted by Phillip How on 15/4/19</small>
+                    </div>
+                </div>
+                <div class="card card-outline-secondary my-4">
+                    <div class="card-header">
+                        Most Critical Review
+                    </div>
+                    <div class="card-body">
+                        <h6 class="user-rating">1.8 &#9733; &#9734; &#9734; &#9734; &#9734;</h6>
+                        <p>One of the quieter KFC outlets in Singapore. Most of the time, there isn't a long queue.
+                            However, there is only
+                            one person behind the counter at any given time and it might take a while before you get
+                            to enjoy your food.
+                            The building is very old too and the toilet here is in bad condition.</p>
+                        <img src="https://via.placeholder.com/50x50.png" alt="" />
+                        <small class="text-muted">Posted by Jenson Neo on 4/12/19</small>
+                        <hr>
+                    </div>
+                </div>
+                <!-- End of most positive/critical review -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Login, Register & Reset Password modals -->
+    <div w3-include-html="modals_forms/login_modal.html"></div>
+    <div w3-include-html="modals_forms/register_modal.html"></div>
+    <div w3-include-html="modals_forms/resetpassword_modal.html"></div>
+
+    <!-- Site Footer -->
+    <div w3-include-html="footer.html"></div>
+</body>
+
+<script src="js/w3.js"></script>
+<script>
+    //to bring in other HTML on the fly into this page
+    w3.includeHTML();
+</script>
+
+</html>

@@ -1,0 +1,122 @@
+<div class="row filter">
+    <section class="col-lg-12">
+        <div class="card card-group-item filter-content card-body">
+            <h5 class="title">Filters</h5>
+            <hr>
+            <form id="filterForm" onchange="limitFilterAndRefresh()">
+                <!-- Cuisines -->
+                <h6 class="title">Cuisines (Up to 3)</h6>
+                <div class="custom-control custom-checkbox">
+                    <label class="form-check">
+                        <input class="custom-control-input" type="checkbox" name="cuisine" value="1">
+                        <span class="custom-control-label">Chinese</span>
+                    </label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                    <label class="form-check">
+                        <input class="custom-control-input" type="checkbox" name="cuisine" value="2">
+                        <span class="custom-control-label">Western</span>
+                    </label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                    <label class="form-check">
+                        <input class="custom-control-input" type="checkbox" name="cuisine" value="3">
+                        <span class="custom-control-label">Fast Food</span>
+                    </label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                    <label class="form-check">
+                        <input class="custom-control-input" type="checkbox" name="cuisine" value="4">
+                        <span class="custom-control-label">Malay</span>
+                    </label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                    <label class="form-check">
+                        <input class="custom-control-input" type="checkbox" name="cuisine" value="5">
+                        <span class="custom-control-label">Indian</span>
+                    </label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                    <label class="form-check">
+                        <input class="custom-control-input" type="checkbox" name="cuisine" value="6">
+                        <span class="custom-control-label">Halal</span>
+                    </label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                    <label class="form-check">
+                        <input class="custom-control-input" type="checkbox" name="cuisine" value="7">
+                        <span class="custom-control-label">Thai</span>
+                    </label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                    <label class="form-check">
+                        <input class="custom-control-input" type="checkbox" name="cuisine" value="8">
+                        <span class="custom-control-label">Korean</span>
+                    </label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                    <label class="form-check">
+                        <input class="custom-control-input" type="checkbox" name="cuisine" value="9">
+                        <span class="custom-control-label">Japanese</span>
+                    </label>
+                </div><br>
+                <!-- Region -->
+                <h6 class="title">Region</h6>
+                <div class="custom-control custom-radio">
+                    <label class="form-check">
+                        <input class="custom-control-input" type="radio" name="region" value="north">
+                        <span class="custom-control-label">North</span>
+                    </label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <label class="form-check">
+                        <input class="custom-control-input" type="radio" name="region" value="south">
+                        <span class="custom-control-label">South</span>
+                    </label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <label class="form-check">
+                        <input class="custom-control-input" type="radio" name="region" value="east">
+                        <span class="custom-control-label">East</span>
+                    </label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <label class="form-check">
+                        <input class="custom-control-input" type="radio" name="region" value="west">
+                        <span class="custom-control-label">West</span>
+                    </label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <label class="form-check">
+                        <input class="custom-control-input" type="radio" name="region" value="central">
+                        <span class="custom-control-label">Central</span>
+                    </label>
+                </div><br>
+                <!-- Price -->
+                <h6 class="title">Price</h6>
+                <div class="custom-control custom-radio">
+                    <label class="form-check">
+                        <input class="custom-control-input" type="radio" name="price" value="1">
+                        <span class="custom-control-label">$</span>
+                    </label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <label class="form-check">
+                        <input class="custom-control-input" type="radio" name="price" value="2">
+                        <span class="custom-control-label">$$</span>
+                    </label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <label class="form-check">
+                        <input class="custom-control-input" type="radio" name="price" value="3">
+                        <span class="custom-control-label">$$$</span>
+                    </label>
+                </div><br>
+                <label>
+                    <input class="btn btn-danger mb-2" type="reset" value="Clear Filters"
+                        onclick="resetLimitAndRefresh()">
+                </label>
+            </form>
+        </div>
+    </section>
+</div>
