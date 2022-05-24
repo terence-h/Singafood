@@ -3,7 +3,7 @@ var mysql = require('mysql');
 // Create connection to singafood database
 var connection = mysql.createPool({
     host: 'localhost',
-    port: '3304',
+    port: '3306',
     user: 'root',
     password: '',
     database: 'singafood',
